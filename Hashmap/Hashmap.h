@@ -1,33 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
-//#include "../../ListTemplate/ListTemplate/Dynamic_List.h"
-#include "C:\Users\parker.1629\source\repos\ListTemplate\Debug\ListTemplate/Dynamic_List.h"
-
+#include "Dynamic_List.h"
+#include "Dynamic_List.cpp"
 using namespace std;
 
-template <class K, class V>
-class Pair
-{
-public:
-	//default constructor
-	Pair()
-	{
-
-	}
-
-	//pair constructor
-	Pair(K term, V definition)
-	{
-		t = term;
-		d = definition;
-	}
-
-private:
-	//private variables that will hold each individual pair and definition value
-	K t;
-	V d;
-};
 //do I still need to use the pair method?
 template <class K, class V>
 class Hashmap
@@ -35,37 +12,33 @@ class Hashmap
 	
 private:
 	//declare private variables
-	//numbers in the array
-	int size;
 
-	//the length of the array/amount of space in the array
-	int length;
 
 	//gives the pointer of the arr the data type of t
-	Hashmap<K,V>* arr;
+	
 
 	//hold the pair pointer and a variable that will keep count of the index
-	Pair* p;
+	//Pair<K, V>* p;
 	int count = 0;
-	Hashmap<K,V> buckets[5];
+	Dynamic_List<K,V>* buckets[5];
 
 public:
 	//constructor
 	Hashmap();
 
 	//prototyping the methods
-
+	
 	Pair<K,V> removeElement(K term);
 
 	int Length();
 
 
 	//prototyping the Pair class
-	Pair createsPair(K term, V definition);
+	Pair<K, V> createsPair(K term, V definition);
 	int findASCIII(char c);
 	int hash(K term);
-	void addToBuckets(Pair<K, V> p);
-	Pair<K, V> findValue(K term);
+	void addToBuckets(Pair<K, V>* p);
+	V findValue(K term);
 	void sortBuckets(int length, K term);
 	
 	//destructor

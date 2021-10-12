@@ -9,6 +9,12 @@ template <class K,class V>
 //constructor
 Hashmap<K,V>::Hashmap()
 {
+
+	//buckets = { list1,list2,list3,list4,list0 };
+	for (int i = 0; i < 5; i++)
+	{
+		buckets[i] = new Dynamic_List<K, V>();
+	}
 }
 
 
@@ -16,8 +22,8 @@ Hashmap<K,V>::Hashmap()
 template <class K,class V>
 Pair<K,V> Hashmap<K, V>::removeElement(K term)
 {
-	int index = hash(K term);
-	return buckets[index].removeElement(term);
+	int index = hash(term);
+	return buckets[index]->removeElement(term);
 }
 
 //accessor method for length so it can be utilized in the source file
@@ -27,7 +33,7 @@ int Hashmap<K,V>::Length()
 	int num = 0;
 	for (int i = 0; i < 5; i++)
 	{
-		num += buckets[i].length();
+		num += buckets[i]->length();
 	}
 	return num;
 }
@@ -52,33 +58,27 @@ template<class K, class V>
 int Hashmap<K, V>::hash(K term)
 {
 	int value = 0;
-	for (int j = 0; j < arr[j].t.length; j++)
+	for (int j = 0; j < term.length(); j++)
 	{
-		value += findASCIII(arr[j].t.charAt(j));
+		value += findASCIII(term[j]);
 	}
 	return value%5;
 }
 
 //create the buckets that we will implement
 template<class K, class V>
-void Hashmap<K, V>::addToBuckets(Pair<K,V> p)
+void Hashmap<K, V>::addToBuckets(Pair<K,V>* p)
 {
-	Hashmap<K,V> list1;
-	Hashmap<K,V> list2;
-	Hashmap<K,V> list3;
-	Hashmap<K,V> list4;
-	Hashmap<K,V> list0;
 	
-	buckets = { list1,list2,list3,list4,list0 };
 	//goes through the original huge dynamically resizable list then goes letter by letter through the word and adds up the ASCI
-		buckets[hash(p)].addElement(p);
+	buckets[hash(p->getKey())]->addElement(p);
 
 }
 template <class K, class V>
-Pair<K, V> Hashmap<K, V>::findValue(K term)
+V Hashmap<K, V>::findValue(K term)
 {
-	int index = hash(K term);
-	return buckets[index].findValue(term);
+	int index = hash(term);
+	return buckets[index]->findValue(term);
 }
 
 

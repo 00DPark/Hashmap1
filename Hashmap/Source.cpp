@@ -4,6 +4,7 @@
 #include <map>
 #include "Hashmap.h"
 #include "Hashmap.cpp"
+
 using namespace std;
 
 /*it is going to be extremely similar to the dynamically resizeable list but it's essentially
@@ -13,32 +14,50 @@ for the word or phrase
 */
 int main()
 {
-	Hashmap<string,string>dict();
+	Hashmap<string,string>dict = Hashmap<string, string>();
 	boolean quit = false;
 	boolean stop = true;
 	string term = "";
 	string definition = "";
+	Pair <string, string>* p = new Pair <string, string>();
 	string findTerm = "";
+	string removeTerm = "";
 	while (quit == false)
 	{
 		cout << "Enter the name of the term or Enter Q to quit" << endl;
 		cin >> term;
 		if (term == "Q")
 		{
-			quit = true;
+			break;
 		}
 		cout << "Enter the definition of the term" << endl;
 		cin >> definition;
-		dict.addtoBuckets(term, definition);
+		p = new Pair<string, string>(term, definition);
+		dict.addToBuckets(p);
 	}
 
-	while (stop == false)
+	while (stop ==  true)
 	{
-		cout << "Enter the term you want to find " << endl;
+		cout << "Enter the term you want to find or Q to quit" << endl;
 		cin >> findTerm;
-		cout<< dict.findValue(findTerm) <<endl;
+		if (findTerm == "Q")
+		{
+			break;
+		}
+		cout << dict.findValue(findTerm) << endl;
 	}
 
+	while (true)
+	{
+		cout << "Enter value to remove or Q to quit" << endl;
+		cin >> removeTerm;
+		if (removeTerm == "Q")
+		{
+			break;
+		}
+		*p=dict.removeElement(removeTerm);
+		cout << p->getKey() <<" " << p->getValue() << endl;
+	}
 	
 
 		
