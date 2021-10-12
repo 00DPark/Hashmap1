@@ -1,0 +1,17 @@
+﻿  Hashmap.cpp
+c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(44): error C2955: 'Pair': use of class template requires template argument list
+  c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(7): note: see declaration of 'Pair'
+  c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(50): note: see reference to class template instantiation 'Dynamic_List<K,V>' being compiled
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.h(30): error C2953: 'Pair': class template has already been defined
+  c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.h(10): note: see declaration of 'Pair'
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.cpp(19): error C2760: syntax error: unexpected token 'identifier', expected ')'
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.cpp(80): error C2760: syntax error: unexpected token 'identifier', expected ')'
+  Source.cpp
+c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(44): error C2955: 'Pair': use of class template requires template argument list
+  c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(7): note: see declaration of 'Pair'
+  c:\users\parker.1629\source\repos\listtemplate\debug\listtemplate\dynamic_list.h(50): note: see reference to class template instantiation 'Dynamic_List<K,V>' being compiled
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.h(30): error C2953: 'Pair': class template has already been defined
+  c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.h(10): note: see declaration of 'Pair'
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.cpp(19): error C2760: syntax error: unexpected token 'identifier', expected ')'
+c:\users\parker.1629\source\repos\hashmap\hashmap\hashmap.cpp(80): error C2760: syntax error: unexpected token 'identifier', expected ')'
+  Generating Code...
